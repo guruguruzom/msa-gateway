@@ -25,8 +25,13 @@ spring:
           uri: http://localhost:8081/
           predicates:
             - Path=/first-service/**
-          filters:
-            - CustomFilter
+          filters: #두가지 필터를 적용한다면 name이 필요
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Hi, there
+                preLogger: true
+                postLogger: true
 #            - AddRequestHeader=first-request,first-request-header2
 #            - AddResponseHeader=first-response,first-response-header2
         - id: second-service
