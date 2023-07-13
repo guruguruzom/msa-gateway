@@ -1,6 +1,6 @@
 
 server:
-  port: 9000
+  port: 8000
 
 #eureka:
 #  client:
@@ -49,6 +49,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
 
         - id: order-service
           uri: lb://ORDER-SERVICE
@@ -88,3 +89,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
+
+
+token:
+  secret: user_token
