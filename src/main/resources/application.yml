@@ -107,8 +107,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans, httptrace, busrefresh #actuator 사용할 목록
+        include: refresh, health, beans, httptrace, busrefresh, info, metrics, prometheus #actuator 사용할 목록
 
 
-token:
-  secret: user_token
+#token:
+#  secret: user_token
